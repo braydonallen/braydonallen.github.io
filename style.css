@@ -1,5 +1,5 @@
 body {
-    background: rgb(50, 99, 104);
+    background: rgb(213, 251, 255);
     color: rgb(45, 45, 45);
     padding: 10px;
     font-family: arial;
@@ -11,7 +11,7 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(116, 42, 23);
+    background: rgb(0, 0, 0);
    margin: 0 auto;
    margin-bottom: 20px;
     display: flex;
