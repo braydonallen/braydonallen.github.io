@@ -1,6 +1,6 @@
 body {
     background: rgb(213, 251, 255);
-    color: rgb(45, 45, 45);
+    color: rgb(255, 255, 255);
     padding: 10px;
     font-family: arial;
 }
@@ -11,7 +11,7 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(0, 0, 0);
+    background: rgb(181, 182, 255);
    margin: 0 auto;
    margin-bottom: 20px;
     display: flex;
@@ -39,7 +39,7 @@ a {
 
 /* main container area beneath menu */
 main {
-    background: rgb(148, 129, 75);
+    background: rgb(241, 198, 117);
     display: flex;
     border-radius: 5px;
 }
@@ -58,34 +58,35 @@ main {
 
 /* portfolio styles */
 #interests {
-    border: 4px rgb(0, 0, 0) ridge;
-    padding: 8px;
+    border: 7px rgb(181, 182, 255) ridge;
+    padding: 5px;
 }
 h2, h3 {
     margin: 0px;
 }
-         /* portfolio styles */
-         .content h1 {
-            color: black;
-        }
 
-        #portfolio {
-            list-style-type: none;
-            padding-left: 0;
-        }
+/* portfolio styles */
+.content h1 {
+color: black;
+}
 
-        #portfolio li {
-            background: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+#portfolio {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-        #portfolio li:hover {
-            background: #eee;
-        }
+#portfolio li {
+    background: rgb(237, 238, 255);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
 
-        #portfolio a {
-            text-decoration: none;
-            color: #454545;
-        }
+#portfolio li:hover {
+    background: #eee;
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: #454545;
+}
