@@ -3,7 +3,7 @@ const walkAcceleration = 2.5; // how much is added to the speed each frame
 const gravity = 0.5; // how much is subtracted from speedY each frame
 const friction = 1.5; // how much the player is slowed each frame
 const maxSpeed = 8; // maximum horizontal speed, not vertical
-const playerJumpStrength = 12; // this is subtracted from the speedY each jump
+const playerJumpStrength = 15; // this is subtracted from the speedY each jump
 const projectileSpeed = 8; // the speed of projectiles
 
 /////////////////////////////////////////////////
@@ -91,13 +91,13 @@ let halleImage;
 let animationDetails = {};
 
 var collectableList = {
-  blue: { image: "/images/collectables/blue.png"},
-  red: { image: "/images/collectables/red.png"},
-  yellow: { image: "/images/collectables/yellow.png"},
-  green: { image: "/images/collectables/green.png"},
-  black: { image: "/images/collectables/black.png"},
-  cyan: { image: "/images/collectables/cyan.png"},
-  orange: { image: "/images/collectables/orange.png"},
-  purple: { image: "/images/collectables/purple.png"},
-  white: { image: "/images/collectables/white.png"},
+  blue: { image: "images/collectables/blue.png"},
+  red: { image: "images/collectables/red.png"},
+  yellow: { image: "images/collectables/yellow.png"},
+  green: { image: "images/collectables/green.png"},
+  black: { image: "images/collectables/black.png"},
+  cyan: { image: "images/collectables/cyan.png"},
+  orange: { image: "images/collectables/orange.png"},
+  purple: { image: "images/collectables/purple.png"},
+  white: { image: "images/collectables/white.png"},
 };

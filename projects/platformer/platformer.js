@@ -46,17 +46,9 @@ $(function () {
 
     //middle platforms
     createPlatform(300, 600, 700, 10)
-    createPlatform(300, 300, 700, 10)
+    createPlatform(300, 400, 700, 10)
 
-    //lower side platforms
-    createPlatform(0, 450, 250, 10)
-    createPlatform(1150, 450, 250, 10)
-
-    //upper side platforms
-    createPlatform(0, 150, 250, 10)
-    createPlatform(1150, 150, 250, 10)
-
-
+    //fortnite
 
 
     
@@ -66,13 +58,7 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-    createCollectable("blue", 1300, 400, 5, 0);
-    createCollectable("red", 1300, 100, 5, 0);
-    createCollectable("yellow", 1300, 700, 5, 0);
-    createCollectable("green", 50, 400, 5, 0);
-    createCollectable("white", 50, 700, 5, 0);
-    createCollectable("purple", 650, 210, 5, 0);
-    createCollectable("orange", 650, 510, 5, 0);
+
 
 
     // TODO 3
@@ -81,7 +67,7 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-    createCannon(left, 100, 1, 10, 10);
+    createCannon("right", 600, 1000, 0.1, 0.1);
 
 
     /////////////////////////////////////////////////

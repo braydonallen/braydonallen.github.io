@@ -92,7 +92,6 @@ function changeAnimationType() {
     currentAnimationType = animationTypes.jump;
     jumpTimer--;
   } else {
-    jumpTimer = 0;
     if (Math.abs(player.speedX) > 0) {
       //if you're moving then change animation to walking or running
       if (keyPress.left || keyPress.right) {
@@ -109,7 +108,7 @@ function changeAnimationType() {
           duckTimer = DUCK_COUNTER_IDLE_VALUE * 2 - frameIndex;
         }
       } else if (
-        duckTimer === 0 ||
+        duckTimer === 0 && jumpTimer === 0||
         currentAnimationType === animationTypes.walk
       ) {
         currentAnimationType = animationTypes.frontIdle;
@@ -295,16 +294,14 @@ function resolveCollision(objx, objy, objw, objh) {
 
   if (originx >= originy) {
     if (dy > 0) {
-      //bottom collision
-      collisionDirection = "bottom";
-      player.y = player.y + originy + 1;
-      player.speedY = 0;
     } else {
-      //top collision
-      collisionDirection = "top";
-      player.y = player.y - originy;
-      player.speedY = 0;
-      player.onGround = true;
+      if (currentAnimationType !== animationTypes.duck){
+        //top collision
+        collisionDirection = "top";
+        player.y = player.y - originy;
+        player.speedY = 0;
+        player.onGround = true;
+      }
     }
   } else {
     if (dx > 0) {
@@ -664,7 +661,7 @@ function keyboardControlActions() {
     player.facingRight = true;
   }
   if (keyPress.space || keyPress.up) {
-    if (player.onGround) {
+    if (player.onGround && jumpTimer===0) {
       //this only lets you jump if you are on the ground
       player.speedY = player.speedY - playerJumpStrength;
       jumpTimer = 19; //this counts how many frames to have the jump last.
@@ -703,7 +700,7 @@ function handleKeyUp(e) {
   if (e.key === "ArrowDown" || e.key === "s") {
     keyPress.down = false;
     if (currentAnimationType === animationTypes.duck) {
-      duckTimer = 8;
+      duckTimer = 1;
       frameIndex = 20;
     }
   }
