@@ -3,9 +3,9 @@ body {
 }
 
 canvas {
-  background-color: lightgray;
+  background-image: url("images/background.png");
 }
 
 img {
-  display: none;
+  display: none
 }

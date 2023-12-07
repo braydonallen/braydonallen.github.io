@@ -293,16 +293,22 @@ function resolveCollision(objx, objy, objw, objh) {
   }
 
   if (originx >= originy) {
-    if (dy > 0) {
+    if (dy > 0 && player.y<100) {
+      //bottom collision
+      collisionDirection = "bottom";
+      player.y = player.y + originy;
+      player.speedY = 0;
     } else {
-      if (currentAnimationType !== animationTypes.duck){
-        //top collision
-        collisionDirection = "top";
-        player.y = player.y - originy;
-        player.speedY = 0;
-        player.onGround = true;
+        if (keyPress.down && player.y<600) {
+        } else {
+          //top collision
+          collisionDirection = "top";
+          player.y = player.y - originy;
+          player.speedY = 0;
+          player.onGround = true;
+        }
       }
-    }
+
   } else {
     if (dx > 0) {
       //left collision
@@ -408,8 +414,8 @@ function playerFrictionAndGravity() {
 
 function drawPlatforms() {
   for (var i = 0; i < platforms.length; i++) {
-    ctx.fillStyle = "grey";
-    ctx.fillRect(
+    ctx.drawImage(
+      platformImage,
       platforms[i].x,
       platforms[i].y,
       platforms[i].width,
@@ -664,7 +670,7 @@ function keyboardControlActions() {
     if (player.onGround && jumpTimer===0) {
       //this only lets you jump if you are on the ground
       player.speedY = player.speedY - playerJumpStrength;
-      jumpTimer = 19; //this counts how many frames to have the jump last.
+      jumpTimer = 5; //this counts how many frames to have the jump last.
       player.onGround = false; //bug fix for jump animation, you have to change this or the jump animation doesn't work
       frameIndex = 4;
     }

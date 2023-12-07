@@ -9,6 +9,7 @@ $(function () {
       halleImage = document.getElementById("player");
       projectileImage = document.getElementById("projectile");
       cannonImage = document.getElementById("cannon");
+      platformImage = document.getElementById("platform");
       $(document).on("keydown", handleKeyDown);
       $(document).on("keyup", handleKeyUp);
       firstTimeSetup = false;
@@ -45,8 +46,9 @@ $(function () {
     // example usage: createPlatform(x,y,width,height)
 
     //middle platforms
-    createPlatform(300, 600, 700, 10)
-    createPlatform(300, 400, 700, 10)
+    createPlatform(0, 600, 1500, 10)
+    createPlatform(0, 400, 1500, 10)
+    createPlatform(0, 200, 1500, 10)
 
     //fortnite
 
@@ -58,6 +60,9 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
+    createCollectable("cyan", 200, 170, 6, 0.7);
+    //createCollectable("wood", 400, 170, 6, 0.7);
+    //createCollectable("stone", 600, 170, 6, 0.7);
 
 
 
@@ -67,7 +72,9 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-    createCannon("right", 600, 1000, 0.1, 0.1);
+    createCannon("right", 600,  Math.random() * (2500 - 1000) + 1000);
+    createCannon("right", 400,  Math.random() * (2500 - 1000) + 1000);
+    createCannon("right", 200,  Math.random() * (2500 - 1000) + 1000);
 
 
     /////////////////////////////////////////////////
