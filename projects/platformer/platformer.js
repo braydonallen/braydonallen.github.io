@@ -18,7 +18,6 @@ $(function () {
     }
     //create walls
     createPlatform(-50, -50, canvas.width + 100, 50); //top
-    createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //right
     createPlatform(-50, -50, 50, canvas.height + 500); //bottom
     createPlatform(canvas.width, -50, 50, canvas.height + 100);
 
@@ -59,12 +58,7 @@ $(function () {
     // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
-
-    createCollectable("cyan", 200, 170, 6, 0.7);
-    //createCollectable("wood", 400, 170, 6, 0.7);
-    //createCollectable("stone", 600, 170, 6, 0.7);
-
-
+    
 
     // TODO 3
     // Create cannons
@@ -84,3 +78,29 @@ $(function () {
 
   registerSetup(setup);
 });
+
+function collectableHandler(){
+  if (playTimer===500){
+    createCollectable("wood", Math.random()*1250, 370, 6, 0.7);
+  } else if (playTimer===1000){
+    createCollectable("stone", Math.random()*1250, 170, 6, 0.7);
+  } else if (playTimer===1500){
+    createCollectable("coal", Math.random()*1250, 570, 6, 0.7);
+  } else if (playTimer===2000){
+    createCollectable("copper", Math.random()*1250, 170, 6, 0.7);
+  } else if (playTimer===2500){
+    createCollectable("iron", Math.random()*1250, 370, 6, 0.7);
+  } else if (playTimer===3000){
+    createCollectable("redstone", Math.random()*1250, 370, 6, 0.7);
+  } else if (playTimer===3500){
+    createCollectable("lapiz", Math.random()*1250, 170, 6, 0.7);
+  } else if (playTimer===4000){
+    createCollectable("gold", Math.random()*1250, 570, 6, 0.7);
+  } else if (playTimer===4500){
+    createCollectable("diamond", Math.random()*1250, 170, 6, 0.7);
+  } else if (playTimer===5000){
+    createCollectable("emerald", Math.random()*1250, 370, 6, 0.7);
+  } else if (playTimer===5500){
+    createCollectable("netherite", Math.random()*1250, 570, 6, 0.7);
+  }
+}

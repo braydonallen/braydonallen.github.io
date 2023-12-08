@@ -4,7 +4,8 @@ const gravity = 1; // how much is subtracted from speedY each frame
 const friction = 1.5; // how much the player is slowed each frame
 const maxSpeed = 8; // maximum horizontal speed, not vertical
 const playerJumpStrength = 20; // this is subtracted from the speedY each jump
-const projectileSpeed = 10; // the speed of projectiles
+let playTimer = 0;
+const projectileSpeed = 10 + (playTimer/1000);
 
 /////////////////////////////////////////////////
 //////////ONLY CHANGE ABOVE THIS POINT///////////
@@ -91,13 +92,15 @@ let halleImage;
 let animationDetails = {};
 
 var collectableList = {
-  blue: { image: "images/collectables/blue.png"},
-  red: { image: "images/collectables/red.png"},
-  yellow: { image: "images/collectables/yellow.png"},
-  green: { image: "images/collectables/green.png"},
-  black: { image: "images/collectables/black.png"},
-  cyan: { image: "images/collectables/cyan.png"},
-  orange: { image: "images/collectables/orange.png"},
-  purple: { image: "images/collectables/purple.png"},
-  white: { image: "images/collectables/white.png"},
+  wood: { image: "images/collectables/wood.png"},
+  stone: { image: "images/collectables/stone.png"},
+  coal: { image: "images/collectables/coal.png"},
+  copper: { image: "images/collectables/copper.png"},
+  iron: { image: "images/collectables/iron.png"},
+  redstone: { image: "images/collectables/redstone.png"},
+  lapiz: { image: "images/collectables/lapiz.png"},
+  gold: { image: "images/collectables/gold.png"},
+  diamond: { image: "images/collectables/diamond.png"},
+  emerald: { image: "images/collectables/emerald.png"},
+  netherite: { image: "images/collectables/netherite.png"},
 };

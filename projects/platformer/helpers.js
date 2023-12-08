@@ -28,9 +28,10 @@ function main() {
   keyboardControlActions(); //keyboard controls.
   projectileCollision(); //checks if the player is getting hit by a projectile in the next frame
   collectablesCollide(); //checks if player has touched a collectable
-
+  collectableHandler();
   animate(); //this changes halle's picture to the next frame so it looks animated.
-  // debug()                   //debugging values. Comment this out when not debugging.
+  // debug()  
+  calculatePlayTime();                 //debugging values. Comment this out when not debugging.
   drawRobot(); //this actually displays the image of the robot.
 }
 
@@ -78,6 +79,19 @@ function JsonFunction(status, response) {
 ///////////////////////////////////////////////
 // Helper functions ///////////////////////////
 ///////////////////////////////////////////////
+
+
+function calculatePlayTime(){
+  ctx.fillStyle = "black";
+  ctx.font = "300% serif";
+  ctx.fillText(
+    (Math.round(playTimer*10))/10,
+    canvas.width / 2,
+    canvas.height / 50 + canvas.height / 35,
+    (canvas.width / 5) * 7
+  );
+  playTimer+=1
+}
 
 function changeAnimationType() {
   if (currentAnimationType === animationTypes.frontDeath) {
@@ -299,7 +313,7 @@ function resolveCollision(objx, objy, objw, objh) {
       player.y = player.y + originy;
       player.speedY = 0;
     } else {
-        if (keyPress.down && player.y<600) {
+        if (keyPress.down && player.y<500) {
         } else {
           //top collision
           collisionDirection = "top";
@@ -369,9 +383,9 @@ function deathOfPlayer() {
     canvas.height / 2
   );
   ctx.fillStyle = "black";
-  ctx.font = "800% serif";
+  ctx.font = "250% serif";
   ctx.fillText(
-    "You are dead",
+    "You are dead, you survived " + (Math.round(playTimer*10))/1000 + " seconds",
     canvas.width / 4,
     canvas.height / 6 + canvas.height / 5,
     (canvas.width / 16) * 14
