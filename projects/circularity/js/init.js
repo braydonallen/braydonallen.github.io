@@ -24,16 +24,19 @@ var init = function (window) {
         var circles = []; //variable to store all circles in one array
 
         // TODO 2 : Create a function that draws a circle 
+
+        //function run to draw each circle created
         function drawCircle(){
             //code to draw a circle
-            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 10, 10);
-            view.addChild(circle);
-            circles.push(circle);
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2); // creates the properties of the circle using an already existing draw function. stores the output as the variable circle
+            physikz.addRandomVelocity(circle, canvas, 10, 10); // uses the physikz library to set the velocity of the circle to a random number
+            view.addChild(circle); // adds the circle to view so the user can see it
+            circles.push(circle); //adds the circle to the circles array by pushing it to the end
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
 
+        //loop through 100 times and draw a circle for every loop
         for (var i = 0; i<100; i++){
             drawCircle()
         }
@@ -49,11 +52,14 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
+
+            //create a loop and do it 100 times, each time updating a circles position using the physikz library
             for (var i = 0; i<100; i++){
                 physikz.updatePosition(circles[i])
             }
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
 
+            //loops through all of the circles, checking the circles to see if they are within the set boundrais
             for (var i = 0; i<100; i++){
                 game.checkCirclePosition(circles[i])
             }
@@ -70,18 +76,22 @@ var init = function (window) {
         */
         game.checkCirclePosition = function(circle) {
 
-            // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
+             //if the left side of the circle has gone off the right side of the screen, then the right side of the circle will be set to the left borders position
             if ( circle.x - circle.radius > canvas.width ) {
                 circle.x = -circle.radius;
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+
+            //if the right side of the circle has gone off the left side of the screen, then the left side of the circle will be set to the right borders position
             if( circle.x + circle.radius < 0) {
                 circle.x = canvas.width + circle.radius;
             }
+            //if the bottom of the circle has gone off the top of the screen, then the top of the circle will be set to the bottom borders position
             if ( circle.y - circle.radius > canvas.height) {
                 circle.y = -circle.radius;
             }
+             //if the top of the circle has gone off the bottom of the screen, then the bottom of the circle will be set to the top borders position
             if ( circle.y + circle.radius < 0) {
                 circle.y = canvas.height + circle.radius;
             }
