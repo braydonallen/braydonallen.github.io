@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>skibidi clicker</title>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="title">
+            <h1>skibidi clicker</h1>
+        </div>
+        <button id="click" onclick="clickButton()" type="button" class="buttons">CLICK ME</button>
+        <hr>
+        <p>
+            Clicks: <span id="total_clicks">0</span><br />
+            Clicks per <small id="time_period">1.00</small> second: <span id="clicks_per_second">0</span>
+        </p>
+        <h3>Buy</h3>
+        <table class="table">
+            <tr>
+              <td>Autoclicker</td>
+              <td><span id="autoclicker_level">lvl 0</span></td>
+              <td><button id="buy_click" onClick="buyClick()" type="button" class="btn btn-success">Buy for 1</button></td>
+            </tr>
+            <tr>
+              <td>Click Factory</td>
+              <td><span id="click_factory_level">lvl 0</span></td>
+              <td><button id="click_factory" onClick="buyClickFactory()" type="button" class="btn btn-success">Buy for 100</button></td>
+            </tr>
+            <tr>
+              <td>Increase Clicks Increment</td>
+              <td></td>
+              <td><button id="increase_clicks" type="button" class="btn btn-success">Buy for 100</button></td>
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>
