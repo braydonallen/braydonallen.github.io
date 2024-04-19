@@ -29,8 +29,8 @@ var background = function (window) {
         // ANIMATION VARIABLES HERE //////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         // TODO (several):
-      
-        var tree;
+        
+        //creates an array to store all of the buildings that will be created
         var buildings = [];
       
         // called at the start of game and whenever the page is resized
@@ -41,44 +41,58 @@ var background = function (window) {
             // TODO 1:
             // this currently fills the background with an obnoxious yellow;
             // you should modify both the height and color to suit your game
+
+            //my theme is not obvious, but it is insanity
+            //There is no deep meaning behind why this is the theme, i just thought it would be fun to have it be that way. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //creates a background using the selected image by drawing with a bitmap
             var bg = draw.bitmap('img/background.png');
             bg.x = 0;
             bg.y = 0;
-            bg.scaleY = 1.45;
-            bg.scaleX = 1.45;
+            //sets the scale of the image
+            bg.scaleY = 1.5;
+            bg.scaleX = 1.5;
             background.addChild(bg);
         
-            
-            // TODO 2: - Add a moon and starfield
-            var moon = draw.bitmap("img/moon.png");
-            moon.x = 300;
-            moon.y = 200;
-            moon.scaleX = 1.0;
-            moon.scaleY = 1.0;
-            background.addChild(moon);
-
+            //uses a loop to create 100 little circles that appear as white stars on the background
             for (var i = 0; i<100; i++){
+                //create the circle and define its properites
                 var circle = draw.circle(2, "white", "LightGray", 2);
+                //set the position to a random spot
                 circle.x = canvasWidth * Math.random();
                 circle.y = groundY * Math.random();
                 background.addChild(circle);
             }
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
+
+            //creates the lightpoles/buildings using a loop
             for (var i = 0; i < 7; ++i) {
+                //sets the height of the buildings
                 var buildingHeight = 300;
+                //draws the lightpole using a bitmap
                 var building = draw.bitmap("img/pole.png");
+                //sets the x position using an iteration
                 building.x = 500 * i;
+                //sets the y to let the pole touch the ground
                 building.y = groundY - buildingHeight;
                 background.addChild(building);
                 buildings.push(building);
               }
-            
-            // TODO 3: Part 1 - Add a tree
-            tree = draw.bitmap("img/tree.png");
-            tree.x = 500;
-            tree.y = groundY-200;
-            background.addChild(tree);
             
             
         } // end of render function - DO NOT DELETE
@@ -92,17 +106,15 @@ var background = function (window) {
             var canvasHeight = app.canvas.height;
             var groundY = ground.y;
             
-            // TODO 3: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
-
-            if (tree.x < -300) {
-            tree.x = canvasWidth+100;
-            }
-            
             // TODO 4: Part 2 - Parallax
+
+            //uses a loop to make the buildings move to appear as the player is moving forward
             for (var i = 0; i < buildings.length; i++) {
+                //gets each building
                 var eachElement = buildings[i];
+                //moves it to the left
                 eachElement.x -= 0.25;
+                //sends it back to the start if it goes offscreen
                 if (eachElement.x < -300){
                     eachElement.x = canvasWidth+100;
                 }
