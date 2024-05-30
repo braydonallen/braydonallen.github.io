@@ -36,7 +36,8 @@ function applyFilter(){
   for (var i in image){
     for (var v in image[i]){
       var rgbString = image[i][v]
-      var rgbNumbers = rgbArrayToString(rgbString);
+      var rgbNumbers = rgbStringToArray()
+      rgbNumbers.RED = 255
     }
   }
 }
