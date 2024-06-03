@@ -7,7 +7,7 @@
 
     window.opspark.createGameManager = function(app,hud) {
         var score = 0;
-        var health = 100;
+        var health = 50;
         var view = app.view;
         var space = app.space;
 
@@ -56,7 +56,7 @@
             }
         }
 
-        hud.setIntegrity(100);
+        hud.setIntegrity(50);
         hud.updateOf(10000);
         
         /* Create a new game item of the given type and hit radius. Each game
@@ -259,7 +259,7 @@
 
 
 
-        var debugMode = false;
+        var debugMode = true;
 
         /* when debug mode is set to true, the hit zone will be displayed
            for each game item */
