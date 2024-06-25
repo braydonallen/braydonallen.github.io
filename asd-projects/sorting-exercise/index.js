@@ -15,30 +15,63 @@ The CSS ids you will work with are:
 
 // TODO 2: Implement bubbleSort
 async function bubbleSort(array) {
+    var i, j, temp;
+    var swapped;
     for (var i = 0; i < array.length; i++) {
+        swapped = false;
         for (var j = 0; j < (array.length - 1); j++) {
-            if (array[j].id > array[j + 1].id) {
+            if (array[j].value > array[j + 1].value) {
                 console.log(array[j])
                 console.log(array[j-1])
                 swap(array, j, j+1)
+                swapped = true
                 updateCounter(bubbleCounter);
                 await sleep();
             }
         }
+        if (swapped == false)
+            break;
     }
 }
 
 // TODO 3: Implement quickSort
 
+async function quickSort(array, left, right){
+    if (left < right){
+        var index = await partition(array, left, right);
+        await quickSort(array, left, index - 1);
+        await quickSort(array, index, right);
+    }
+}
 
 // TODOs 4 & 5: Implement partition
+async function partition(array, left, right){
+    var pivot = array[Math.floor((right + left) / 2)];
+    
+    while (left <= right){
+        while (array[left].value < pivot.value){
+            left++;
+        }
+        while (array[right].value > pivot.value){
+            right--;
+        }
+        if (left <= right){
+            swap(array, left, right);
+            updateCounter(quickCounter);
+            await sleep();
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
 
 
 // TODO 1: Implement swap
 function swap(array, i, j){
-    var t = array[i].id
-    array[i].id = array[j].id
-    array[j].id = t
+    var t = array[i]
+    array[i] = array[j]
+    array[j] = t
 
     console.log(array)
 
